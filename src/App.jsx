@@ -24,7 +24,7 @@ export default function App() {
       <div style={{ marginRight: '80px' }}>
         <div style={{ overflow: 'hidden' }}>
           <img
-            src='https://plantillasdememes.com/img/plantillas/tom-serio-confundido2.jpg'
+            src='../tom.jpeg'
             alt='sexy-image-loader'
             width='350px'
             height='350px'
@@ -39,7 +39,7 @@ export default function App() {
       </div>
       <div>
         <img
-          src='https://plantillasdememes.com/img/plantillas/tom-serio-confundido2.jpg'
+          src='../tom.jpeg'
           alt='sexy-image-loader'
           width='350px'
           height='350px'
