@@ -17,36 +17,32 @@ const blurEffect = {
   }
 }
 
+const Image = ({ loading, onLoad, scale }) => (
+  <img
+    src='../tom.jpeg'
+    alt='sexy-image-loader'
+    width='350px'
+    height='350px'
+    style={loading 
+      ? { ...blurEffect.filterOn, ...(scale && { transform: 'scale(1.2)' }) } 
+      : { ...blurEffect.filterOff, ...(scale && { transform: 'scale(1)' }) }}
+    onLoad={() => onLoad(false)}
+    loading='lazy'
+  />
+)
+
 export default function App() {
   const [isLoading, setLoading] = React.useState(true)
   return (
     <div style={styles}>
       <div style={{ marginRight: '80px' }}>
         <div style={{ overflow: 'hidden' }}>
-          <img
-            src='../tom.jpeg'
-            alt='sexy-image-loader'
-            width='350px'
-            height='350px'
-            style={isLoading 
-              ? { ...blurEffect.filterOn, transform: 'scale(1.2)' } 
-              : { ...blurEffect.filterOff, transform: 'scale(1)' }}
-            onLoad={() => setLoading(false)}
-            loading='lazy'
-          />
+          <Image loading={isLoading} onLoad={setLoading} scale />
         </div>
         <h2>it looks</h2>
       </div>
       <div>
-        <img
-          src='../tom.jpeg'
-          alt='sexy-image-loader'
-          width='350px'
-          height='350px'
-          style={isLoading ? blurEffect.filterOn : blurEffect.filterOff}
-          onLoad={() => setLoading(false)}
-          loading='lazy'
-        />
+        <Image loading={isLoading} onLoad={setLoading} />
         <h2>awesome</h2>
       </div>
     </div>
